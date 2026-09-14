@@ -22,25 +22,25 @@ tailwind.config = {
   theme: {
     extend: {
       colors: {
-        "brand": "#0E7C66",
-        "brand-dark": "#0A5C4B",
-        "brand-light": "#E6F5F1",
-        "brand-glow": "#12A085",
-        "ink": "#0B1F1A",
-        "ink-soft": "#3D5A52",
-        "muted": "#6B8A80",
-        "line": "#DCEAE5",
-        "paper": "#F7FBF9",
-        "paper-warm": "#FDFEFD",
-        "night": "#071A16",
-        "night-soft": "#0F2A24",
-        "night-line": "#1E3D36",
-        "amber-accent": "#F59E0B",
+        "brand": "#3B82F6",
+        "brand-dark": "#2563EB",
+        "brand-light": "#EFF6FF",
+        "brand-glow": "#93C5FD",
+        "ink": "#0F172A",
+        "ink-soft": "#475569",
+        "muted": "#64748B",
+        "line": "#E2E8F0",
+        "paper": "#F8FAFC",
+        "paper-warm": "#FFFFFF",
+        "night": "#0F172A",
+        "night-soft": "#1E293B",
+        "night-line": "#334155",
+        "amber-accent": "#F2B457",
         "amber-soft": "#FEF6E7",
-        "sky-accent": "#2563EB",
-        "sky-soft": "#EAF1FE",
-        "rose-accent": "#E11D48",
-        "emerald-ok": "#10B981"
+        "sky-accent": "#6BA3D6",
+        "sky-soft": "#EDF4FC",
+        "rose-accent": "#E88B9A",
+        "emerald-ok": "#6BCB9A"
       },
       borderRadius: {
         DEFAULT: "0.25rem",
@@ -92,11 +92,11 @@ tailwind.config = {
 <body class="bg-paper font-body text-ink antialiased">
 
 <!-- ================= HEADER ================= -->
-<header class="fixed top-0 inset-x-0 z-50 bg-paper-warm/90 backdrop-blur-xl shadow-[0_1px_10px_rgba(11,31,26,0.05)]">
+<header class="fixed top-0 inset-x-0 z-50 bg-paper-warm/90 backdrop-blur-xl shadow-[0_1px_10px_rgba(31,46,42,0.05)]">
   <div class="h-20 max-w-7xl mx-auto px-margin-sm lg:px-margin flex items-center justify-between gap-space-lg">
     <a class="flex items-center gap-space-sm group" href="#">
-      <div class="w-10 h-10 rounded-xl bg-brand flex items-center justify-center shadow-[0_6px_18px_rgba(14,124,102,0.35)]">
-        <span class="material-symbols-outlined text-white text-[22px]">deployed_code</span>
+      <div class="w-10 h-10 rounded-xl  flex items-center justify-center shadow-md">
+        <img src="ik-logo.svg" alt="IK Tech Solution logo" class="w-8 h-8 object-contain" />
       </div>
       <div class="flex flex-col">
         <span class="font-heading text-h4 text-ink tracking-tight leading-none group-hover:text-brand transition-colors">IK Tech</span>
@@ -115,7 +115,7 @@ tailwind.config = {
     </nav>
 
     <div class="flex items-center gap-space-md">
-      <a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-brand hover:bg-brand-dark text-white font-label text-label shadow-[0_6px_18px_rgba(14,124,102,0.35)] transition-all hover:scale-[1.02]" href="#contact">
+      <a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-brand hover:bg-brand-dark text-white font-label text-label shadow-[0_6px_18px_rgba(91,168,151,0.35)] transition-all hover:scale-[1.02]" href="#contact">
         Start a Project
       </a>
       <div class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center">
@@ -142,7 +142,7 @@ tailwind.config = {
 
   <!-- ================= HERO ================= -->
   <section class="relative w-full overflow-hidden bg-gradient-to-b from-paper-warm via-brand-light/40 to-paper pt-space-xl pb-24">
-    <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#0B1F1A_1px,transparent_1px)] [background-size:26px_26px]"></div>
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#0F172A_1px,transparent_1px)] [background-size:26px_26px]"></div>
     <div class="absolute top-10 right-[-6%] w-[560px] h-[560px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-0 left-[-6%] w-[420px] h-[420px] rounded-full bg-sky-accent/10 blur-3xl pointer-events-none"></div>
 
@@ -166,7 +166,7 @@ tailwind.config = {
           </p>
 
           <div class="flex flex-wrap items-center gap-space-md pt-space-sm w-full sm:w-auto">
-            <a class="inline-flex items-center justify-center gap-space-xs px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_10px_24px_rgba(14,124,102,0.35)] transition-all hover:-translate-y-0.5" href="#services">
+            <a class="inline-flex items-center justify-center gap-space-xs px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_10px_24px_rgba(91,168,151,0.35)] transition-all hover:-translate-y-0.5" href="#services">
               <span>Explore Services</span>
               <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
             </a>
@@ -359,7 +359,7 @@ tailwind.config = {
           </div>
 
           <div class="pt-space-sm">
-            <a class="inline-flex items-center gap-space-xs px-6 py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(14,124,102,0.3)] transition-all hover:translate-x-1" href="#contact">
+            <a class="inline-flex items-center gap-space-xs px-6 py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(91,168,151,0.3)] transition-all hover:translate-x-1" href="#contact">
               <span>Work With Us</span>
               <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
             </a>
@@ -732,7 +732,7 @@ tailwind.config = {
         <form class="w-full max-w-2xl flex flex-col sm:flex-row items-center gap-space-sm pt-space-xs" onsubmit="event.preventDefault(); document.getElementById('nl-success').classList.remove('hidden');">
           <input class="w-full sm:w-1/2 px-space-md py-3.5 rounded-lg bg-brand-light text-ink placeholder-muted focus:outline-none focus:bg-paper-warm shadow-inner font-body text-body" placeholder="Your Name" required type="text"/>
           <input class="w-full sm:w-1/2 px-space-md py-3.5 rounded-lg bg-brand-light text-ink placeholder-muted focus:outline-none focus:bg-paper-warm shadow-inner font-body text-body" placeholder="Your Email" required type="email"/>
-          <button class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(14,124,102,0.3)] shrink-0 transition-all hover:scale-[1.02] flex items-center justify-center gap-2" type="submit">
+          <button class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(91,168,151,0.3)] shrink-0 transition-all hover:scale-[1.02] flex items-center justify-center gap-2" type="submit">
             <span>Subscribe</span>
             <span class="material-symbols-outlined text-[18px]">send</span>
           </button>
@@ -846,7 +846,7 @@ tailwind.config = {
   </section>
 
   <!-- ================= COOKIE BANNER ================= -->
-  <div class="fixed bottom-4 inset-x-4 max-w-4xl mx-auto z-40 bg-night/95 backdrop-blur-md text-white p-space-md rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-md" id="cookie-banner">
+  <!-- <div class="fixed bottom-4 inset-x-4 max-w-4xl mx-auto z-40 bg-night/95 backdrop-blur-md text-white p-space-md rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-md" id="cookie-banner">
     <div class="flex items-start gap-space-sm">
       <span class="material-symbols-outlined text-brand-glow text-[24px] mt-0.5 shrink-0">cookie</span>
       <div class="flex flex-col">
@@ -864,7 +864,7 @@ tailwind.config = {
         Accept
       </button>
     </div>
-  </div>
+  </div> -->
 
 </div>
 </main>
