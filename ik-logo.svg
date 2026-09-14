@@ -1,0 +1,46 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 1024 1024"
+  width="100%"
+  height="100%"
+>
+  <defs>
+    <clipPath id="roundedIcon">
+      <rect x="0" y="0" width="1024" height="1024" rx="200" ry="200" />
+    </clipPath>
+
+    <!-- ছোট পিক্সেল — K (16×16 টাইল) -->
+    <pattern id="kPixelPattern" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect x="1" y="1" width="13" height="13" rx="2" fill="#3b82f6" />
+    </pattern>
+
+    <!-- ছোট পিক্সেল — I (16×16 টাইল) -->
+    <pattern id="iPixelPattern" width="16" height="16" patternUnits="userSpaceOnUse">
+      <rect x="1" y="1" width="13" height="13" rx="2" fill="#93c5fd" />
+    </pattern>
+  </defs>
+
+  <g clip-path="url(#roundedIcon)">
+    <!-- K top arm -->
+    <g fill="url(#kPixelPattern)">
+      <rect x="704" y="256" width="128" height="64" />
+      <rect x="640" y="320" width="160" height="64" />
+      <rect x="576" y="384" width="160" height="64" />
+      <rect x="512" y="448" width="160" height="64" />
+    </g>
+
+    <!-- K bottom arm -->
+    <g fill="url(#kPixelPattern)">
+      <rect x="512" y="512" width="160" height="64" />
+      <rect x="576" y="576" width="160" height="64" />
+      <rect x="640" y="640" width="160" height="64" />
+      <rect x="704" y="704" width="128" height="64" />
+    </g>
+
+    <!-- I bar -->
+    <rect x="288" y="256" width="128" height="512" fill="url(#iPixelPattern)" />
+
+    <!-- K stem -->
+    <rect x="416" y="256" width="128" height="512" fill="url(#kPixelPattern)" />
+  </g>
+</svg>

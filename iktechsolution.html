@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="ik-logo.svg" rel="icon" type="image/svg+xml"/>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+  @layer base {
+    html, body { margin: 0; padding: 0; }
+    body { overscroll-behavior: none; }
+    main > :first-child { margin-top: 0 !important; }
+    main > :last-child { margin-bottom: 0 !important; }
+  }
+  ::-webkit-scrollbar { display: none; }
+</style>
+<script src="https://cdn.tailwindcss.com"></script>
+<script id="tailwind-config">
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "brand": "#0E7C66",
+        "brand-dark": "#0A5C4B",
+        "brand-light": "#E6F5F1",
+        "brand-glow": "#12A085",
+        "ink": "#0B1F1A",
+        "ink-soft": "#3D5A52",
+        "muted": "#6B8A80",
+        "line": "#DCEAE5",
+        "paper": "#F7FBF9",
+        "paper-warm": "#FDFEFD",
+        "night": "#071A16",
+        "night-soft": "#0F2A24",
+        "night-line": "#1E3D36",
+        "amber-accent": "#F59E0B",
+        "amber-soft": "#FEF6E7",
+        "sky-accent": "#2563EB",
+        "sky-soft": "#EAF1FE",
+        "rose-accent": "#E11D48",
+        "emerald-ok": "#10B981"
+      },
+      borderRadius: {
+        DEFAULT: "0.25rem",
+        lg: "0.5rem",
+        xl: "0.75rem",
+        "2xl": "1rem",
+        "3xl": "1.5rem",
+        full: "9999px"
+      },
+      spacing: {
+        "gutter": "1.5rem",
+        "gutter-sm": "1rem",
+        "margin": "2rem",
+        "margin-sm": "1rem",
+        "margin-lg": "4rem",
+        "space-xs": "0.25rem",
+        "space-sm": "0.5rem",
+        "space-md": "1rem",
+        "space-lg": "1.5rem",
+        "space-xl": "2.5rem"
+      },
+      fontFamily: {
+        display: ["Sora"],
+        heading: ["Sora"],
+        body: ["Inter"],
+        label: ["Sora"]
+      },
+      fontSize: {
+        "hero": ["56px", { lineHeight: "64px", letterSpacing: "-0.03em", fontWeight: "800" }],
+        "hero-mobile": ["34px", { lineHeight: "42px", letterSpacing: "-0.02em", fontWeight: "800" }],
+        "h1": ["40px", { lineHeight: "48px", letterSpacing: "-0.025em", fontWeight: "700" }],
+        "h1-mobile": ["28px", { lineHeight: "34px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "h2": ["30px", { lineHeight: "38px", letterSpacing: "-0.02em", fontWeight: "700" }],
+        "h3": ["22px", { lineHeight: "30px", letterSpacing: "-0.015em", fontWeight: "600" }],
+        "h4": ["18px", { lineHeight: "26px", letterSpacing: "-0.01em", fontWeight: "600" }],
+        "body-lg": ["18px", { lineHeight: "28px", letterSpacing: "-0.005em", fontWeight: "400" }],
+        "body": ["15px", { lineHeight: "24px", letterSpacing: "0em", fontWeight: "400" }],
+        "body-sm": ["13px", { lineHeight: "20px", letterSpacing: "0.005em", fontWeight: "400" }],
+        "label": ["14px", { lineHeight: "20px", letterSpacing: "0.01em", fontWeight: "600" }],
+        "label-sm": ["11px", { lineHeight: "14px", letterSpacing: "0.08em", fontWeight: "700" }],
+        "label-md": ["12px", { lineHeight: "16px", letterSpacing: "0.04em", fontWeight: "600" }]
+      }
+    }
+  }
+};
+</script>
+</head>
+
+<body class="bg-paper font-body text-ink antialiased">
+
+<!-- ================= HEADER ================= -->
+<header class="fixed top-0 inset-x-0 z-50 bg-paper-warm/90 backdrop-blur-xl shadow-[0_1px_10px_rgba(11,31,26,0.05)]">
+  <div class="h-20 max-w-7xl mx-auto px-margin-sm lg:px-margin flex items-center justify-between gap-space-lg">
+    <a class="flex items-center gap-space-sm group" href="#">
+      <div class="w-10 h-10 rounded-xl bg-brand flex items-center justify-center shadow-[0_6px_18px_rgba(14,124,102,0.35)]">
+        <span class="material-symbols-outlined text-white text-[22px]">deployed_code</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-heading text-h4 text-ink tracking-tight leading-none group-hover:text-brand transition-colors">IK Tech</span>
+        <span class="font-label text-label-sm uppercase tracking-widest text-muted leading-none mt-1">Solution</span>
+      </div>
+    </a>
+
+    <nav class="hidden xl:flex items-center gap-space-lg">
+      <a class="text-brand font-bold transition-colors" href="#">Home</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#about">About</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#services">Services</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#work">Our Work</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#careers">Careers</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#insights">Insights</a>
+      <a class="font-label text-label text-ink-soft hover:text-ink transition-colors" href="#contact">Contact</a>
+    </nav>
+
+    <div class="flex items-center gap-space-md">
+      <a class="hidden sm:inline-flex items-center justify-center px-space-lg py-space-sm rounded-lg bg-brand hover:bg-brand-dark text-white font-label text-label shadow-[0_6px_18px_rgba(14,124,102,0.35)] transition-all hover:scale-[1.02]" href="#contact">
+        Start a Project
+      </a>
+      <div class="w-8 h-8 rounded-full bg-brand-light flex items-center justify-center">
+        <span class="material-symbols-outlined text-brand text-[18px]">support_agent</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="w-full pt-20 bg-paper">
+<div class="flex flex-col w-full">
+
+  <!-- ================= ANNOUNCEMENT BAR ================= -->
+  <div class="w-full bg-brand-light py-2 px-margin-sm flex items-center justify-center gap-space-sm text-center">
+    <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand text-white font-label text-label-sm uppercase">Dhaka Studio</span>
+    <p class="font-body text-body-sm text-ink-soft font-medium">
+      Building fast, secure &amp; scalable digital products for growing businesses.
+    </p>
+    <a class="inline-flex items-center text-brand hover:text-brand-dark font-label text-label-sm uppercase tracking-wider group ml-1" href="#contact">
+      Let's Talk
+      <span class="material-symbols-outlined text-[14px] ml-0.5 group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
+    </a>
+  </div>
+
+  <!-- ================= HERO ================= -->
+  <section class="relative w-full overflow-hidden bg-gradient-to-b from-paper-warm via-brand-light/40 to-paper pt-space-xl pb-24">
+    <div class="absolute inset-0 opacity-[0.04] pointer-events-none bg-[radial-gradient(#0B1F1A_1px,transparent_1px)] [background-size:26px_26px]"></div>
+    <div class="absolute top-10 right-[-6%] w-[560px] h-[560px] rounded-full bg-brand/10 blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-[-6%] w-[420px] h-[420px] rounded-full bg-sky-accent/10 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+
+        <!-- Hero Text -->
+        <div class="lg:col-span-7 flex flex-col items-start gap-space-md">
+          <div class="inline-flex items-center gap-space-xs px-space-md py-1.5 rounded-full bg-paper-warm shadow-sm">
+            <span class="w-2 h-2 rounded-full bg-emerald-ok animate-pulse"></span>
+            <span class="font-label text-label-sm uppercase tracking-widest text-brand">Trusted Software Partner</span>
+          </div>
+
+          <h1 class="font-display text-hero-mobile lg:text-hero text-ink tracking-tight leading-[1.08]">
+            We Design, Build &amp; <br class="hidden sm:inline"/>
+            <span class="text-brand underline decoration-brand/20 decoration-wavy underline-offset-8">Scale</span> Digital Products That Matter.
+          </h1>
+
+          <p class="font-body text-body-lg text-ink-soft max-w-2xl leading-relaxed">
+            IK Tech Solution is a modern software studio helping startups and enterprises turn complex ideas into clean, reliable and future-ready digital systems — from web platforms to cloud infrastructure.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-space-md pt-space-sm w-full sm:w-auto">
+            <a class="inline-flex items-center justify-center gap-space-xs px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_10px_24px_rgba(14,124,102,0.35)] transition-all hover:-translate-y-0.5" href="#services">
+              <span>Explore Services</span>
+              <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+            </a>
+            <a class="inline-flex items-center justify-center gap-space-xs px-6 py-3.5 rounded-lg bg-paper-warm hover:bg-brand-light text-ink font-heading text-h4 shadow-sm transition-all hover:-translate-y-0.5" href="#work">
+              <span class="material-symbols-outlined text-brand text-[20px]">work</span>
+              <span>See Our Work</span>
+            </a>
+          </div>
+
+          <div class="grid grid-cols-3 gap-space-md pt-space-lg w-full max-w-xl">
+            <div class="flex flex-col">
+              <span class="font-heading text-h2 text-ink tracking-tight">120+</span>
+              <span class="font-label text-label-md text-muted uppercase tracking-wider">Projects Shipped</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-heading text-h2 text-ink tracking-tight">96%</span>
+              <span class="font-label text-label-md text-muted uppercase tracking-wider">Repeat Clients</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-heading text-h2 text-ink tracking-tight">15+</span>
+              <span class="font-label text-label-md text-muted uppercase tracking-wider">Countries Served</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Card -->
+        <div class="lg:col-span-5 relative">
+          <div class="absolute -inset-4 rounded-2xl bg-gradient-to-tr from-brand/15 via-sky-accent/10 to-transparent blur-2xl"></div>
+
+          <div class="relative bg-paper-warm rounded-2xl shadow-xl p-space-lg flex flex-col gap-space-md">
+            <div class="flex items-center justify-between pb-space-sm bg-brand-light px-space-md py-2.5 rounded-lg">
+              <div class="flex items-center gap-1.5">
+                <span class="w-3 h-3 rounded-full bg-rose-accent"></span>
+                <span class="w-3 h-3 rounded-full bg-amber-accent"></span>
+                <span class="w-3 h-3 rounded-full bg-emerald-ok"></span>
+              </div>
+              <span class="font-label text-label-sm text-muted tracking-widest uppercase">ik_tech_stack.ts</span>
+              <span class="material-symbols-outlined text-brand text-[16px]">verified</span>
+            </div>
+
+            <div class="relative w-full h-56 rounded-xl overflow-hidden shadow-inner bg-brand-light flex items-center justify-center">
+              <div class="flex flex-col items-center gap-space-sm text-center px-4">
+                <span class="material-symbols-outlined text-brand text-[56px]">cloud_sync</span>
+                <span class="font-heading text-h4 text-ink">Cloud-Native Delivery</span>
+                <span class="font-body text-body-sm text-ink-soft">Auto-scaling, monitored &amp; secure by default</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-2 gap-space-sm pt-space-xs">
+              <div class="bg-brand-light p-space-md rounded-xl flex items-center gap-space-sm">
+                <div class="w-10 h-10 rounded-lg bg-paper-warm flex items-center justify-center text-brand">
+                  <span class="material-symbols-outlined text-[22px]">bolt</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label text-label-sm uppercase text-muted">Deploy Time</span>
+                  <span class="font-heading text-h4 text-ink">&lt; 10 min</span>
+                </div>
+              </div>
+              <div class="bg-brand-light p-space-md rounded-xl flex items-center gap-space-sm">
+                <div class="w-10 h-10 rounded-lg bg-paper-warm flex items-center justify-center text-sky-accent">
+                  <span class="material-symbols-outlined text-[22px]">shield_lock</span>
+                </div>
+                <div class="flex flex-col">
+                  <span class="font-label text-label-sm uppercase text-muted">Security</span>
+                  <span class="font-heading text-h4 text-ink">OWASP Ready</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 pt-space-xs">
+              <span class="px-2.5 py-1 rounded bg-brand-light text-ink-soft font-label text-label-sm">React / Vue</span>
+              <span class="px-2.5 py-1 rounded bg-brand-light text-ink-soft font-label text-label-sm">Laravel / Node</span>
+              <span class="px-2.5 py-1 rounded bg-brand-light text-ink-soft font-label text-label-sm">Docker / K8s</span>
+              <span class="px-2.5 py-1 rounded bg-amber-soft text-brand font-label text-label-sm font-bold">+20 Stacks</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST BAR ================= -->
+  <section class="w-full bg-paper-warm py-space-lg shadow-sm">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-space-md">
+        <p class="font-label text-label-md uppercase tracking-widest text-muted font-bold shrink-0">
+          What We Deliver End-to-End
+        </p>
+        <div class="flex flex-wrap items-center gap-space-lg sm:gap-12 opacity-80">
+          <div class="flex items-center gap-2 font-heading text-h4 text-ink-soft font-semibold">
+            <span class="material-symbols-outlined text-brand text-[24px]">web</span>
+            <span>Web Platforms</span>
+          </div>
+          <div class="flex items-center gap-2 font-heading text-h4 text-ink-soft font-semibold">
+            <span class="material-symbols-outlined text-brand text-[24px]">smartphone</span>
+            <span>Mobile Apps</span>
+          </div>
+          <div class="flex items-center gap-2 font-heading text-h4 text-ink-soft font-semibold">
+            <span class="material-symbols-outlined text-brand text-[24px]">cloud</span>
+            <span>Cloud &amp; DevOps</span>
+          </div>
+          <div class="flex items-center gap-2 font-heading text-h4 text-ink-soft font-semibold">
+            <span class="material-symbols-outlined text-brand text-[24px]">insights</span>
+            <span>Data &amp; Analytics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="w-full bg-paper py-space-xl lg:py-28 relative" id="about">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+
+        <!-- Visual side -->
+        <div class="lg:col-span-6 relative">
+          <div class="absolute -top-8 -left-6 w-36 h-36 rounded-full border-8 border-amber-accent/20 pointer-events-none"></div>
+          <div class="absolute -bottom-10 right-8 w-44 h-44 rounded-full bg-brand/10 blur-2xl pointer-events-none"></div>
+
+          <div class="grid grid-cols-12 gap-4 relative z-10">
+            <div class="col-span-7 bg-paper-warm p-3 rounded-2xl shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-300">
+              <div class="w-full h-64 rounded-xl overflow-hidden bg-brand-light flex items-center justify-center">
+                <span class="material-symbols-outlined text-brand text-[72px]">groups</span>
+              </div>
+              <div class="pt-3 px-1 flex items-center justify-between">
+                <span class="font-label text-label-md font-bold text-ink">Team Collaboration</span>
+                <span class="font-label text-label-sm text-brand uppercase font-bold">Dhaka</span>
+              </div>
+            </div>
+
+            <div class="col-span-5 bg-paper-warm p-3 rounded-2xl shadow-xl transform rotate-3 hover:rotate-0 transition-transform duration-300 mt-10">
+              <div class="w-full h-52 rounded-xl overflow-hidden bg-sky-soft flex items-center justify-center">
+                <span class="material-symbols-outlined text-sky-accent text-[64px]">architecture</span>
+              </div>
+              <div class="pt-3 px-1">
+                <span class="font-label text-label-sm font-bold text-ink block">Agile Sprints</span>
+              </div>
+            </div>
+
+            <div class="col-span-10 col-start-2 bg-paper-warm p-4 rounded-2xl shadow-2xl -mt-8 relative z-20 flex items-center gap-space-md">
+              <div class="w-20 h-20 rounded-xl overflow-hidden shrink-0 shadow-md bg-amber-soft flex items-center justify-center">
+                <span class="material-symbols-outlined text-amber-accent text-[40px]">lightbulb</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-heading text-h4 text-ink">Problem Solvers First</span>
+                <p class="font-body text-body-sm text-ink-soft">
+                  We study your business before writing a single line of code.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Text side -->
+        <div class="lg:col-span-6 flex flex-col items-start gap-space-md">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-soft text-brand">
+            <span class="material-symbols-outlined text-[18px]">apartment</span>
+            <span class="font-label text-label-sm font-bold uppercase tracking-widest">About IK Tech</span>
+          </div>
+
+          <h2 class="font-heading text-h1 text-ink tracking-tight leading-tight">
+            IK TECH SOLUTION
+          </h2>
+
+          <p class="font-body text-body-lg text-ink-soft leading-relaxed">
+            IK Tech Solution is a product-focused software company built on one simple belief — technology should make business simpler, not more complicated. We partner with founders, product teams and enterprises to design and ship digital solutions that actually move the needle.
+          </p>
+
+          <p class="font-body text-body text-muted leading-relaxed">
+            From early-stage MVPs to large-scale enterprise systems, our engineers, designers and cloud specialists work as an extension of your team — transparent, fast and accountable at every step.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md w-full pt-space-xs">
+            <div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-brand-light">
+              <span class="material-symbols-outlined text-brand text-[22px] shrink-0 mt-0.5">verified</span>
+              <div>
+                <span class="font-heading text-h4 text-ink block">Clean Engineering</span>
+                <span class="font-body text-body-sm text-ink-soft">Maintainable code with real documentation.</span>
+              </div>
+            </div>
+            <div class="flex items-start gap-space-sm p-space-sm rounded-lg bg-brand-light">
+              <span class="material-symbols-outlined text-brand text-[22px] shrink-0 mt-0.5">handshake</span>
+              <div>
+                <span class="font-heading text-h4 text-ink block">Honest Communication</span>
+                <span class="font-body text-body-sm text-ink-soft">No jargon, no surprises, just clear updates.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-space-sm">
+            <a class="inline-flex items-center gap-space-xs px-6 py-3 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(14,124,102,0.3)] transition-all hover:translate-x-1" href="#contact">
+              <span>Work With Us</span>
+              <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="w-full bg-paper-warm py-space-xl lg:py-28 relative" id="services">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+
+      <div class="flex flex-col items-center text-center gap-space-xs mb-space-xl">
+        <span class="font-label text-label-sm uppercase tracking-widest text-brand font-bold px-3 py-1 rounded-full bg-amber-soft">
+          What We Do
+        </span>
+        <h2 class="font-heading text-h1 text-ink tracking-tight">
+          Services Built Around Your Goals
+        </h2>
+        <p class="font-body text-body-lg text-ink-soft max-w-2xl">
+          Whether you need a new product, a rescue mission or a long-term technology partner — we have a team for it.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-space-lg">
+
+        <!-- 1 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-amber-soft flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">code_blocks</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">Custom Software</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                Tailor-made web and desktop software designed around your exact workflow — not a template.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">01</span>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-sky-soft flex items-center justify-center text-sky-accent group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">devices</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">Web &amp; Mobile Apps</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                Fast, responsive and accessible apps built with modern frameworks and clean UX principles.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">02</span>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-brand-light flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">cloud_upload</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">Cloud &amp; DevOps</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                AWS, Azure and GCP architecture with CI/CD pipelines, monitoring and cost optimization.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">03</span>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-amber-soft flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">query_stats</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">SEO &amp; Growth</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                Technical SEO, content strategy and performance marketing to grow qualified traffic.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">04</span>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-sky-soft flex items-center justify-center text-sky-accent group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">hub</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">API &amp; Integration</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                Connect CRMs, ERPs, payment gateways and third-party tools into one smooth workflow.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">05</span>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="group relative bg-paper hover:bg-paper-warm p-space-lg rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between hover:-translate-y-1">
+          <div class="flex flex-col gap-space-md">
+            <div class="w-14 h-14 rounded-xl bg-brand-light flex items-center justify-center text-brand group-hover:bg-brand group-hover:text-white transition-colors duration-300">
+              <span class="material-symbols-outlined text-[30px]">support_agent</span>
+            </div>
+            <div class="flex flex-col gap-space-xs">
+              <h3 class="font-heading text-h3 text-ink group-hover:text-brand transition-colors">Support &amp; Maintenance</h3>
+              <p class="font-body text-body text-ink-soft leading-relaxed">
+                Ongoing monitoring, bug fixes, upgrades and SLA-backed support for live systems.
+              </p>
+            </div>
+          </div>
+          <div class="pt-space-md mt-space-md flex items-center justify-between">
+            <span class="font-label text-label-md font-bold text-brand flex items-center gap-1 group-hover:gap-2 transition-all">
+              Learn More <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            </span>
+            <span class="font-label text-label-sm text-muted opacity-60 uppercase font-semibold">06</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Extra services strip -->
+      <div class="mt-space-xl p-space-lg rounded-2xl bg-brand-light flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+        <div class="flex items-center gap-space-sm">
+          <span class="w-10 h-10 rounded-full bg-brand flex items-center justify-center text-white shrink-0">
+            <span class="material-symbols-outlined text-[20px]">database</span>
+          </span>
+          <div class="flex flex-col">
+            <span class="font-heading text-h4 text-ink">Data Engineering &amp; BI</span>
+            <span class="font-body text-body-sm text-ink-soft">Pipelines, warehouses and dashboards that decision-makers actually use.</span>
+          </div>
+        </div>
+        <a class="inline-flex items-center gap-2 px-space-lg py-2.5 rounded-lg bg-ink text-white hover:bg-brand font-label text-label transition-colors shrink-0" href="#contact">
+          <span>Ask About This</span>
+          <span class="material-symbols-outlined text-[18px]">north_east</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section class="w-full bg-paper py-space-xl lg:py-28 relative overflow-hidden">
+    <div class="absolute right-0 top-1/4 w-96 h-96 rounded-full bg-brand/5 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center">
+
+        <div class="lg:col-span-6 flex flex-col items-start gap-space-md">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-amber-soft text-brand">
+            <span class="material-symbols-outlined text-[18px]">thumb_up</span>
+            <span class="font-label text-label-sm font-bold uppercase tracking-widest">Why IK Tech</span>
+          </div>
+
+          <h2 class="font-heading text-h1 text-ink tracking-tight leading-tight">
+            A Team That Stays <br/>
+            <span class="text-brand">After the Launch</span>
+          </h2>
+
+          <p class="font-body text-body-lg text-ink-soft leading-relaxed">
+            Many agencies disappear after delivery. We don't. IK Tech Solution is built for long-term partnerships — because real software needs real ownership.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-space-md w-full pt-space-sm">
+            <div class="bg-paper-warm p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+              <span class="w-8 h-8 rounded-lg bg-amber-soft text-brand flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">target</span>
+              </span>
+              <span class="font-heading text-h4 text-ink">Business-First Thinking</span>
+              <p class="font-body text-body-sm text-ink-soft">Every technical decision is tied to a business outcome.</p>
+            </div>
+            <div class="bg-paper-warm p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+              <span class="w-8 h-8 rounded-lg bg-sky-soft text-sky-accent flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">lock</span>
+              </span>
+              <span class="font-heading text-h4 text-ink">Security by Default</span>
+              <p class="font-body text-body-sm text-ink-soft">Secure coding, dependency checks and access control baked in.</p>
+            </div>
+            <div class="bg-paper-warm p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+              <span class="w-8 h-8 rounded-lg bg-brand-light text-brand flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">schedule</span>
+              </span>
+              <span class="font-heading text-h4 text-ink">On-Time Delivery</span>
+              <p class="font-body text-body-sm text-ink-soft">Realistic timelines, weekly demos, zero last-minute chaos.</p>
+            </div>
+            <div class="bg-paper-warm p-space-md rounded-xl shadow-sm flex flex-col gap-2">
+              <span class="w-8 h-8 rounded-lg bg-amber-soft text-brand flex items-center justify-center">
+                <span class="material-symbols-outlined text-[20px]">payments</span>
+              </span>
+              <span class="font-heading text-h4 text-ink">Transparent Pricing</span>
+              <p class="font-body text-body-sm text-ink-soft">Clear estimates, no hidden fees, flexible engagement models.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 relative">
+          <div class="absolute -top-10 right-10 w-32 h-32 rounded-full border-8 border-amber-accent/20 pointer-events-none"></div>
+          <div class="absolute -bottom-6 left-12 w-28 h-28 rounded-full bg-amber-accent/15 blur-xl pointer-events-none"></div>
+
+          <div class="relative bg-paper-warm p-space-md rounded-2xl shadow-xl flex flex-col gap-space-md">
+            <div class="w-full h-80 rounded-xl overflow-hidden shadow-md bg-brand-light flex items-center justify-center">
+              <div class="flex flex-col items-center gap-3 text-center px-6">
+                <span class="material-symbols-outlined text-brand text-[80px]">diversity_3</span>
+                <span class="font-heading text-h3 text-ink">One Team, Full Ownership</span>
+                <span class="font-body text-body-sm text-ink-soft">Strategists, engineers, designers and QA — under one roof.</span>
+              </div>
+            </div>
+
+            <div class="bg-brand-light p-space-md rounded-xl flex items-center justify-between">
+              <div class="flex items-center gap-space-sm">
+                <div class="w-12 h-12 rounded-lg bg-brand text-white flex items-center justify-center shrink-0">
+                  <span class="material-symbols-outlined text-[24px]">workspace_premium</span>
+                </div>
+                <div>
+                  <span class="font-heading text-h4 text-ink block">Verified Delivery Partner</span>
+                  <span class="font-body text-body-sm text-ink-soft">Trusted by startups &amp; SMEs across 15+ countries</span>
+                </div>
+              </div>
+              <span class="hidden sm:inline-flex px-2.5 py-1 rounded bg-paper-warm font-label text-label-sm font-bold text-brand shadow-sm">Since 2019</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CAPABILITY MATRIX ================= -->
+  <section class="w-full bg-paper-warm py-space-xl">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="bg-night text-white rounded-3xl p-space-lg lg:p-space-xl relative overflow-hidden shadow-2xl">
+        <div class="absolute right-0 top-0 w-96 h-96 bg-brand/15 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl items-center relative z-10">
+
+          <div class="lg:col-span-6 flex flex-col gap-space-md">
+            <span class="font-label text-label-sm uppercase tracking-widest text-brand-glow font-bold">
+              Engineering Standards
+            </span>
+            <h3 class="font-heading text-h1 text-white tracking-tight">
+              Reliable Systems, Even Under Pressure.
+            </h3>
+            <p class="font-body text-body text-night-line leading-relaxed">
+              We follow proven engineering practices — version control, automated testing, infrastructure as code and observability — so your product stays stable as it grows.
+            </p>
+
+            <div class="flex flex-col gap-space-sm pt-space-xs">
+              <div class="flex items-center gap-space-sm text-white">
+                <span class="material-symbols-outlined text-brand-glow text-[20px]">check_circle</span>
+                <span class="font-body text-body">Automated CI/CD with rollback safety</span>
+              </div>
+              <div class="flex items-center gap-space-sm text-white">
+                <span class="material-symbols-outlined text-brand-glow text-[20px]">check_circle</span>
+                <span class="font-body text-body">Centralized logging, alerts and dashboards</span>
+              </div>
+              <div class="flex items-center gap-space-sm text-white">
+                <span class="material-symbols-outlined text-brand-glow text-[20px]">check_circle</span>
+                <span class="font-body text-body">Load-tested before every major release</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-6 bg-night-soft p-space-md rounded-2xl">
+            <div class="flex items-center justify-between pb-space-sm text-night-line">
+              <span class="font-label text-label-sm uppercase tracking-wider font-semibold">Delivery Health</span>
+              <span class="inline-flex items-center gap-1.5 font-label text-label-sm text-emerald-ok">
+                <span class="w-2 h-2 rounded-full bg-emerald-ok animate-pulse"></span> 99.95% Uptime
+              </span>
+            </div>
+
+            <div class="w-full bg-night rounded-xl p-space-md flex flex-col gap-space-sm">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-brand-glow"></div>
+                  <span class="font-label text-label-sm text-white">Frontend Layer</span>
+                </div>
+                <span class="font-label text-label-sm text-night-line">CDN + Edge Cache</span>
+              </div>
+              <div class="w-full bg-night-soft h-2 rounded-full overflow-hidden">
+                <div class="bg-brand-glow h-full w-[88%]"></div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-sky-accent"></div>
+                  <span class="font-label text-label-sm text-white">API Gateway</span>
+                </div>
+                <span class="font-label text-label-sm text-night-line">Rate-limited &amp; Auth</span>
+              </div>
+              <div class="w-full bg-night-soft h-2 rounded-full overflow-hidden">
+                <div class="bg-sky-accent h-full w-[93%]"></div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <div class="flex items-center gap-2">
+                  <div class="w-3 h-3 rounded-full bg-emerald-ok"></div>
+                  <span class="font-label text-label-sm text-white">Database</span>
+                </div>
+                <span class="font-label text-label-sm text-night-line">Backup + Replication</span>
+              </div>
+              <div class="w-full bg-night-soft h-2 rounded-full overflow-hidden">
+                <div class="bg-emerald-ok h-full w-[99%]"></div>
+              </div>
+            </div>
+
+            <div class="mt-space-md p-space-sm bg-night rounded-lg font-mono text-body-sm text-night-line">
+              <p class="text-emerald-ok">$ iktech deploy --env production --region ap-south-1</p>
+              <p class="text-white">&gt; Building artifacts... done</p>
+              <p class="text-white">&gt; Health checks passed. Traffic switched safely.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWSLETTER ================= -->
+  <section class="w-full bg-paper py-space-xl">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="bg-paper-warm rounded-3xl p-space-lg lg:p-space-xl shadow-lg flex flex-col items-center text-center gap-space-md">
+        <div class="w-14 h-14 rounded-2xl bg-amber-soft text-brand flex items-center justify-center">
+          <span class="material-symbols-outlined text-[32px]">mark_email_read</span>
+        </div>
+
+        <div class="flex flex-col gap-space-xs max-w-2xl">
+          <h3 class="font-heading text-h1 text-ink tracking-tight">
+            Get Practical Tech Insights, Once a Month
+          </h3>
+          <p class="font-body text-body text-ink-soft">
+            No spam. Just useful notes on software, cloud, security and building better digital products.
+          </p>
+        </div>
+
+        <form class="w-full max-w-2xl flex flex-col sm:flex-row items-center gap-space-sm pt-space-xs" onsubmit="event.preventDefault(); document.getElementById('nl-success').classList.remove('hidden');">
+          <input class="w-full sm:w-1/2 px-space-md py-3.5 rounded-lg bg-brand-light text-ink placeholder-muted focus:outline-none focus:bg-paper-warm shadow-inner font-body text-body" placeholder="Your Name" required type="text"/>
+          <input class="w-full sm:w-1/2 px-space-md py-3.5 rounded-lg bg-brand-light text-ink placeholder-muted focus:outline-none focus:bg-paper-warm shadow-inner font-body text-body" placeholder="Your Email" required type="email"/>
+          <button class="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-brand hover:bg-brand-dark text-white font-heading text-h4 shadow-[0_6px_18px_rgba(14,124,102,0.3)] shrink-0 transition-all hover:scale-[1.02] flex items-center justify-center gap-2" type="submit">
+            <span>Subscribe</span>
+            <span class="material-symbols-outlined text-[18px]">send</span>
+          </button>
+        </form>
+
+        <div class="hidden p-space-sm rounded-lg bg-amber-soft text-brand font-body text-body-sm font-semibold" id="nl-success">
+          Thanks for subscribing! Check your inbox for a confirmation.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="w-full bg-paper-warm py-space-xl lg:py-24" id="contact">
+    <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-space-xl">
+
+        <div class="lg:col-span-5 flex flex-col gap-space-lg">
+          <div class="flex flex-col gap-space-xs">
+            <span class="font-label text-label-sm uppercase tracking-widest text-brand font-bold">
+              Get In Touch
+            </span>
+            <h3 class="font-heading text-h1 text-ink tracking-tight">
+              Let's Build Something That Works
+            </h3>
+            <p class="font-body text-body text-ink-soft">
+              Tell us about your project, your timeline and your goals. We'll get back within one business day.
+            </p>
+          </div>
+
+          <div class="bg-brand-light p-space-lg rounded-2xl flex flex-col gap-space-md">
+            <div class="flex items-start gap-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-brand text-white flex items-center justify-center shrink-0 mt-1">
+                <span class="material-symbols-outlined text-[20px]">location_on</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-heading text-h4 text-ink">Studio Address</span>
+                <p class="font-body text-body text-ink-soft leading-relaxed mt-1">
+                  House 42, Road 7, Block C, Banani, Dhaka 1213, Bangladesh
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-paper-warm text-brand flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[20px]">mail</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label text-label-sm uppercase text-muted">Email</span>
+                <a class="font-heading text-h4 text-ink hover:text-brand transition-colors" href="mailto:hello@iktechsolution.com">
+                  hello@iktechsolution.com
+                </a>
+              </div>
+            </div>
+
+            <div class="flex items-center gap-space-sm">
+              <div class="w-10 h-10 rounded-lg bg-paper-warm text-brand flex items-center justify-center shrink-0">
+                <span class="material-symbols-outlined text-[20px]">schedule</span>
+              </div>
+              <div class="flex flex-col">
+                <span class="font-label text-label-sm uppercase text-muted">Working Hours</span>
+                <span class="font-body text-body text-ink">
+                  Sunday – Thursday: 10:00 AM – 07:00 PM BST
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:col-span-7 flex flex-col gap-space-sm">
+          <div class="w-full h-96 rounded-2xl overflow-hidden shadow-lg relative bg-brand-light flex items-center justify-center">
+            <div class="flex flex-col items-center gap-3 text-center px-6">
+              <span class="material-symbols-outlined text-brand text-[64px]">map</span>
+              <span class="font-heading text-h4 text-ink">Banani, Dhaka</span>
+              <span class="font-body text-body-sm text-ink-soft">Near Banani Club, easy to reach from anywhere in the city.</span>
+            </div>
+
+            <div class="absolute top-4 left-4 bg-paper-warm/95 backdrop-blur-md p-space-md rounded-xl shadow-md flex items-center gap-space-sm">
+              <div class="w-3 h-3 rounded-full bg-brand animate-ping"></div>
+              <div>
+                <span class="font-heading text-h4 text-ink block">IK Tech Solution</span>
+                <span class="font-body text-body-sm text-ink-soft">Banani, Dhaka</span>
+              </div>
+            </div>
+
+            <div class="absolute bottom-4 right-4">
+              <a class="px-4 py-2 bg-night/90 hover:bg-brand text-white font-label text-label-md rounded-lg shadow-md transition-colors flex items-center gap-1.5" href="https://maps.google.com" rel="noopener noreferrer" target="_blank">
+                <span>Open in Google Maps</span>
+                <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="bg-brand-light p-space-md rounded-xl flex flex-wrap items-center justify-between gap-space-md">
+            <span class="font-label text-label-md uppercase tracking-wider text-muted font-bold">Certifications:</span>
+            <div class="flex items-center gap-space-md">
+              <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-paper-warm shadow-sm text-ink">
+                <span class="material-symbols-outlined text-brand text-[20px]">workspace_premium</span>
+                <span class="font-label text-label-sm font-bold">AWS Partner</span>
+              </div>
+              <div class="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-paper-warm shadow-sm text-ink">
+                <span class="material-symbols-outlined text-brand text-[20px]">stars</span>
+                <span class="font-label text-label-sm font-bold">ISO 27001 Ready</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= COOKIE BANNER ================= -->
+  <div class="fixed bottom-4 inset-x-4 max-w-4xl mx-auto z-40 bg-night/95 backdrop-blur-md text-white p-space-md rounded-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-space-md" id="cookie-banner">
+    <div class="flex items-start gap-space-sm">
+      <span class="material-symbols-outlined text-brand-glow text-[24px] mt-0.5 shrink-0">cookie</span>
+      <div class="flex flex-col">
+        <span class="font-label text-label text-white font-bold">We use cookies</span>
+        <p class="font-body text-body-sm text-night-line">
+          Cookies help this site work properly and let us understand how visitors use it. You can accept or reject non-essential cookies.
+        </p>
+      </div>
+    </div>
+    <div class="flex items-center gap-space-xs shrink-0 w-full md:w-auto justify-end">
+      <button class="px-4 py-2 rounded-lg bg-night-soft hover:bg-night-line text-white font-label text-label-md transition-colors" onclick="document.getElementById('cookie-banner').style.display='none'">
+        Reject
+      </button>
+      <button class="px-5 py-2 rounded-lg bg-brand hover:bg-brand-dark text-white font-label text-label-md transition-colors shadow-md" onclick="document.getElementById('cookie-banner').style.display='none'">
+        Accept
+      </button>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="w-full bg-night text-white">
+  <div class="max-w-7xl mx-auto px-margin-sm lg:px-margin pt-space-xl pb-space-lg">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-space-xl pb-space-xl">
+
+      <div class="lg:col-span-4 flex flex-col gap-space-md">
+        <div class="flex items-center gap-space-sm">
+          <div class="w-9 h-9 rounded-lg bg-brand flex items-center justify-center">
+            <span class="material-symbols-outlined text-white text-[20px]">deployed_code</span>
+          </div>
+          <div class="flex flex-col">
+            <span class="font-heading text-h4 text-white tracking-tight leading-none">IK Tech</span>
+            <span class="font-label text-label-sm uppercase tracking-widest text-night-line leading-none mt-1">Solution</span>
+          </div>
+        </div>
+        <p class="font-body text-body text-night-line max-w-sm">
+          Building reliable digital products, cloud systems and growth-ready platforms for businesses that want to move forward.
+        </p>
+        <div class="flex items-center gap-space-sm">
+          <a aria-label="LinkedIn" class="w-9 h-9 rounded-lg bg-night-soft flex items-center justify-center text-night-line hover:text-white hover:bg-brand transition-colors" href="#">
+            <span class="material-symbols-outlined text-[18px]">share</span>
+          </a>
+          <a aria-label="GitHub" class="w-9 h-9 rounded-lg bg-night-soft flex items-center justify-center text-night-line hover:text-white hover:bg-brand transition-colors" href="#">
+            <span class="material-symbols-outlined text-[18px]">code</span>
+          </a>
+          <a aria-label="Website" class="w-9 h-9 rounded-lg bg-night-soft flex items-center justify-center text-night-line hover:text-white hover:bg-brand transition-colors" href="#">
+            <span class="material-symbols-outlined text-[18px]">public</span>
+          </a>
+          <a aria-label="Blog" class="w-9 h-9 rounded-lg bg-night-soft flex items-center justify-center text-night-line hover:text-white hover:bg-brand transition-colors" href="#">
+            <span class="material-symbols-outlined text-[18px]">feed</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2 flex flex-col gap-space-sm">
+        <span class="font-label text-label uppercase tracking-wider text-white">Company</span>
+        <nav class="flex flex-col gap-space-xs">
+          <a class="text-brand font-bold transition-colors" href="#">Home</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#about">About</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#services">Services</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#work">Our Work</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#careers">Careers</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#insights">Insights</a>
+          <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <div class="lg:col-span-3 flex flex-col gap-space-sm">
+        <span class="font-label text-label uppercase tracking-wider text-white">Services</span>
+        <div class="flex flex-col gap-space-xs">
+          <span class="font-body text-body-sm text-night-line">Custom Software Development</span>
+          <span class="font-body text-body-sm text-night-line">Web &amp; Mobile Applications</span>
+          <span class="font-body text-body-sm text-night-line">Cloud Migration &amp; DevOps</span>
+          <span class="font-body text-body-sm text-night-line">API &amp; System Integration</span>
+          <span class="font-body text-body-sm text-night-line">Data Engineering &amp; BI</span>
+          <span class="font-body text-body-sm text-night-line">QA &amp; Test Automation</span>
+        </div>
+      </div>
+
+      <div class="lg:col-span-3 flex flex-col gap-space-md">
+        <span class="font-label text-label uppercase tracking-wider text-white">Dhaka Office</span>
+        <div class="flex items-start gap-space-sm text-night-line">
+          <span class="material-symbols-outlined text-brand-glow text-[20px] shrink-0 mt-0.5">location_on</span>
+          <p class="font-body text-body-sm">House 42, Road 7, Block C, Banani, Dhaka 1213, Bangladesh</p>
+        </div>
+        <div class="flex items-center gap-space-sm text-night-line">
+          <span class="material-symbols-outlined text-brand-glow text-[20px] shrink-0">mail</span>
+          <span class="font-body text-body-sm">hello@iktechsolution.com</span>
+        </div>
+        <div class="flex items-center gap-space-sm text-night-line">
+          <span class="material-symbols-outlined text-brand-glow text-[20px] shrink-0">call</span>
+          <span class="font-body text-body-sm">+880 1712-345678</span>
+        </div>
+
+        <div class="mt-space-xs">
+          <span class="font-label text-label-sm uppercase tracking-wider text-night-line block mb-space-xs">Get Monthly Updates</span>
+          <div class="flex items-center gap-space-xs">
+            <input class="w-full bg-night-soft text-white placeholder-night-line text-body-sm font-body px-space-sm py-space-xs rounded-lg focus:outline-none focus:ring-1 focus:ring-brand" placeholder="Your email" type="email"/>
+            <button class="px-space-md py-space-xs rounded-lg bg-brand hover:bg-brand-dark text-white font-label text-label-md shrink-0 transition-colors" type="button">Join</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="pt-space-lg flex flex-col sm:flex-row items-center justify-between gap-space-md border-t border-night-soft">
+      <p class="font-body text-body-sm text-night-line">© 2026 IK Tech Solution. All rights reserved.</p>
+      <div class="flex items-center gap-space-md">
+        <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#">Privacy Policy</a>
+        <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#">Terms of Service</a>
+        <a class="font-body text-body-sm text-night-line hover:text-white transition-colors" href="#">Security</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
