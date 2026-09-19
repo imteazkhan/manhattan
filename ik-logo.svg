@@ -12,12 +12,12 @@
 
     <!-- ছোট পিক্সেল — K (16×16 টাইল) -->
     <pattern id="kPixelPattern" width="16" height="16" patternUnits="userSpaceOnUse">
-      <rect x="1" y="1" width="13" height="13" rx="2" fill="#1e3a8a" />
+      <rect x="1" y="1" width="13" height="13" rx="2" fill="#3b82f6" />
     </pattern>
 
     <!-- ছোট পিক্সেল — i (16×16 টাইল) -->
     <pattern id="iPixelPattern" width="16" height="16" patternUnits="userSpaceOnUse">
-      <rect x="1" y="1" width="13" height="13" rx="2" fill="#2563eb" />
+      <rect x="1" y="1" width="13" height="13" rx="2" fill="#3b82f6" />
     </pattern>
 
   </defs>
